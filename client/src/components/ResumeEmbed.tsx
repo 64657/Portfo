@@ -1,7 +1,7 @@
-import { Download, FileText } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { personalInfo } from '@/data/constants';
+import { Download, FileText } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { personalInfo } from "@/data/constants";
 
 export function ResumeEmbed() {
   return (
@@ -34,7 +34,7 @@ export function ResumeEmbed() {
 
       <div className="relative w-full aspect-[8.5/11] bg-muted rounded-lg overflow-hidden border border-border">
         <iframe
-          src={`${personalInfo.resumeUrl}#view=FitH`}
+          src={`/ResumeN.pdf#view=FitH`}
           className="absolute inset-0 w-full h-full"
           title="Resume Preview"
           data-testid="iframe-resume"

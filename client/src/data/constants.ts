@@ -148,7 +148,7 @@ export const personalInfo = {
   bio: `I'm a passionate Full Stack Developer with expertise in building scalable web applications using modern technologies. With a strong foundation in the MERN stack and extensive experience with Node.js, Fastify, and PostgreSQL, I create efficient, maintainable, and user-centric solutions.
 
 My approach combines clean code principles with performance optimization, ensuring applications are both robust and fast. I thrive in collaborative environments and enjoy solving complex technical challenges.`,
-  resumeUrl: '/RESUME.pdf',
+  resumeUrl: 'https://acrobat.adobe.com/id/urn:aaid:sc:AP:3ea71d6a-f9df-4616-b8ff-5f192b9ce9f3',
   social: {
     github: 'https://github.com/64657',
     linkedin: 'https://www.linkedin.com/in/mohammed-faseeullah-a25a71202/',

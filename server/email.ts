@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import type { ContactMessage } from '@shared/schema';
 
-const recipientEmail = process.env.CONTACT_EMAIL || 'faseeullah.1998@gmail.com';
+const recipientEmail = 'faseeullah.1998@gmail.com';
 
 function createTransporter() {
   const host = process.env.SMTP_HOST;

@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { Send, Loader2, CheckCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Card } from '@/components/ui/card';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { Send, Loader2, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Card } from "@/components/ui/card";
 import {
   Form,
   FormControl,
@@ -14,13 +14,13 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { useToast } from '@/hooks/use-toast';
+} from "@/components/ui/form";
+import { useToast } from "@/hooks/use-toast";
 
 const contactSchema = z.object({
   name: z.string().optional(),
-  email: z.string().email('Please enter a valid email address'),
-  message: z.string().min(20, 'Message must be at least 20 characters'),
+  email: z.string().email("Please enter a valid email address"),
+  message: z.string().min(20, "Message must be at least 20 characters"),
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;
@@ -33,18 +33,18 @@ export function ContactForm() {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      name: '',
-      email: '',
-      message: '',
+      name: "",
+      email: "",
+      message: "",
     },
   });
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
@@ -53,19 +53,22 @@ export function ContactForm() {
       if (response.ok) {
         setIsSuccess(true);
         toast({
-          title: 'Message sent!',
+          title: "Message sent!",
           description: "Thank you for reaching out. I'll get back to you soon.",
         });
         form.reset();
         setTimeout(() => setIsSuccess(false), 3000);
       } else {
-        throw new Error(result.message || 'Failed to send message');
+        throw new Error(result.message || "Failed to send message");
       }
     } catch (error) {
       toast({
-        title: 'Error',
-        description: error instanceof Error ? error.message : 'Failed to send message. Please try again.',
-        variant: 'destructive',
+        title: "Error",
+        description:
+          error instanceof Error
+            ? error.message
+            : "Failed to send message. Please try again.",
+        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
